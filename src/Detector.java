@@ -15,4 +15,11 @@ public class Detector {
         return (set.size() - common.size());
     }
 
+    public int countsDifferentWords(ArrayList<String> storedWords) {
+        return (int) storedWords
+                .stream()
+                .distinct()
+                .count();
+    }
+
 }
