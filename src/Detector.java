@@ -1,11 +1,12 @@
 import java.util.*;
 
 public class Detector {
+    private Scanner input = new Scanner(System.in);
 
-    TypeTokenRatio typeTokenRatio = new TypeTokenRatio();
-    AverageLengthOfWords averageLengthOfWords = new AverageLengthOfWords();
-    HapaxLegomenaRatio hapaxLegomenaRatio = new HapaxLegomenaRatio();
-    AverageWordsInSentence averageWordsInSentence = new AverageWordsInSentence();
+    private TypeTokenRatio typeTokenRatio = new TypeTokenRatio();
+    private AverageLengthOfWords averageLengthOfWords = new AverageLengthOfWords();
+    private HapaxLegomenaRatio hapaxLegomenaRatio = new HapaxLegomenaRatio();
+    private AverageWordsInSentence averageWordsInSentence = new AverageWordsInSentence();
 
     private ArrayList<String> storedWordsOne;
     private ArrayList<String> storedWordsTwo;
@@ -70,29 +71,27 @@ public class Detector {
         }
     }
 
-    public void comparesTexts() {
-        Scanner input = new Scanner(System.in);
-
+    public void storesTextOne(){
         System.out.print("Enter text one: ");
         textOne = input.nextLine();
-
         storedWordsOne = new ArrayList<>(Arrays.asList(textOne.split("([,.!?_;=+-:\\s]+)")));
         storedSentencesOne = new ArrayList<>(Arrays.asList(textOne.split("[!?.:]+")));
+    }
 
-        printsResult(storedWordsOne, storedSentencesOne);
-
+    public void storesTextTwo(){
         System.out.print("Enter text two: ");
         textTwo = input.nextLine();
-
         storedWordsTwo = new ArrayList<>(Arrays.asList(textTwo.split("([,.!?_;=+-:\\s]+)")));
         storedSentencesTwo = new ArrayList<>(Arrays.asList(textTwo.split("[!?.:]+")));
+    }
 
+    public void comparesTexts() {
+        storesTextOne();
+        printsResult(storedWordsOne, storedSentencesOne);
+        storesTextTwo();
         printsResult(storedWordsTwo, storedSentencesTwo);
-
         setsWeight();
         printsSimilarity();
-
-
     }
 
 }
