@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 public class AverageLengthOfWords {
+
     public double getsAverageLengthOfWords(ArrayList<String> storedWords) {
         StringBuilder sb = new StringBuilder();
 
