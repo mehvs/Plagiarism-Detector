@@ -54,7 +54,6 @@ public class Detector {
     }
 
     public void setsWeight() {
-        Scanner input = new Scanner(System.in);
         System.out.print("Type 1 if you want to continue with default values(Default values: 11, 33, 50, 0.4), type 2 to set your own values: ");
 
         int option = input.nextInt();

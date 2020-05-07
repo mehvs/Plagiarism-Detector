@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3f00a019-4674-4266-aa86-e650eb81623c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PlagiarismDetectorProject/Detector.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PlagiarismDetectorProject/Detector.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PlagiarismDetectorProject/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PlagiarismDetectorProject/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Detector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Detector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
