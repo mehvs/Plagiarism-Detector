@@ -70,14 +70,14 @@ public class Detector {
         }
     }
 
-    public void storesTextOne(){
+    public void storesTextOne() {
         System.out.print("Enter text one: ");
         textOne = input.nextLine();
         storedWordsOne = new ArrayList<>(Arrays.asList(textOne.split("([,.!?_;=+-:\\s]+)")));
         storedSentencesOne = new ArrayList<>(Arrays.asList(textOne.split("[!?.:]+")));
     }
 
-    public void storesTextTwo(){
+    public void storesTextTwo() {
         System.out.print("Enter text two: ");
         textTwo = input.nextLine();
         storedWordsTwo = new ArrayList<>(Arrays.asList(textTwo.split("([,.!?_;=+-:\\s]+)")));

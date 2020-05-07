@@ -9,8 +9,8 @@ public class TypeTokenRatio {
                 .count();
     }
 
-    public double getsTypeTokenRatio(ArrayList<String> storedWords){
-        return (double)countsDifferentWords(storedWords)/(double)storedWords.size();
+    public double getsTypeTokenRatio(ArrayList<String> storedWords) {
+        return (double) countsDifferentWords(storedWords) / (double) storedWords.size();
     }
 
 }

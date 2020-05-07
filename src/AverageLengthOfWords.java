@@ -8,7 +8,7 @@ public class AverageLengthOfWords {
         for (int i = 0; i < storedWords.size(); i++) {
             sb.append(storedWords.get(i));
         }
-        return (double)sb.length() / (double)storedWords.size();
+        return (double) sb.length() / (double) storedWords.size();
     }
 
 }
