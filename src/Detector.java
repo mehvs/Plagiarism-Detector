@@ -1,96 +1,96 @@
 import java.util.*;
 
 public class Detector {
+    private Scanner input = new Scanner(System.in);
 
-    public int countsUniqueWords(ArrayList<String> storedWords){
-        Set<String> set = new HashSet<>();
-        Set<String> common = new HashSet<>();
-        for (String i : storedWords) {
-            if(!set.add(i)) {
-                common.add(i);
-            }
-        }
-        return (set.size() - common.size());
+    private TypeTokenRatio typeTokenRatio = new TypeTokenRatio();
+    private AverageLengthOfWords averageLengthOfWords = new AverageLengthOfWords();
+    private HapaxLegomenaRatio hapaxLegomenaRatio = new HapaxLegomenaRatio();
+    private AverageWordsInSentence averageWordsInSentence = new AverageWordsInSentence();
+
+    private ArrayList<String> storedWordsOne;
+    private ArrayList<String> storedWordsTwo;
+    private ArrayList<String> storedSentencesOne;
+    private ArrayList<String> storedSentencesTwo;
+
+    private String textOne;
+    private String textTwo;
+
+    private double weightOne = 11;
+    private double weightTwo = 33;
+    private double weightThree = 50;
+    private double weightFour = 0.4;
+
+    public double getTypeTokenRatio(ArrayList<String> storedWords) {
+        return typeTokenRatio.getsTypeTokenRatio(storedWords);
     }
 
-    public int countsDifferentWords(ArrayList<String> storedWords) {
-        return (int) storedWords
-                .stream()
-                .distinct()
-                .count();
+    public double getAverageLengthOfWords(ArrayList<String> storedWords) {
+        return averageLengthOfWords.getsAverageLengthOfWords(storedWords);
     }
 
-    //Gets the average length of words in a string (Feature 1)
-    public double getsAverageLengthOfWords(ArrayList<String> storedWords) {
-        StringBuilder sb = new StringBuilder();
-
-        for (int i = 0; i < storedWords.size(); i++) {
-            sb.append(storedWords.get(i));
-        }
-        return (double)sb.length() / (double)storedWords.size();
+    public double getHapaxLegomenaRatio(ArrayList<String> storedWords) {
+        return hapaxLegomenaRatio.getsHapaxLegomenaRatio(storedWords);
     }
 
-    //Gets the TTR (Feature 2)
-    public double getsTypeTokenRatio(ArrayList<String> storedWords){
-        return (double)countsDifferentWords(storedWords)/(double)storedWords.size();
+    public double getAverageWordsInSentence(ArrayList<String> storedWords, ArrayList<String> storedSentences) {
+        return averageWordsInSentence.getsAverageWordsInSentence(storedWords, storedSentences);
     }
 
-    //Gets the HLR (Feature 3)
-    public double getsHapaxLegomenaRatio(ArrayList<String> storedWords){
-        return (double)countsUniqueWords(storedWords)/(double)storedWords.size();
+    public void printsResult(ArrayList<String> storedWords, ArrayList<String> storedSentences) {
+        System.out.println("1. Avg. word length: " + getAverageLengthOfWords(storedWords) +
+                "\n2. Type-Token Ratio: " + getTypeTokenRatio(storedWords) +
+                "\n3. Hapax Legomena Ratio: " + getHapaxLegomenaRatio(storedWords) +
+                "\n4. Avg. sentence length: " + getAverageWordsInSentence(storedWords, storedSentences));
     }
 
-    //Gets the average words in sentences (Feature 4)
-    public double getsAverageWordsInSentence(ArrayList<String> storedWords, ArrayList<String> storedSentences){
-        return (double)storedWords.size()/(double)storedSentences.size();
-    }
-
-    public void comparesTexts(){
-        ArrayList<String> storedWordsOne;
-        ArrayList<String> storedWordsTwo;
-        ArrayList<String> storedSentencesOne;
-        ArrayList<String> storedSentencesTwo;
-
-        Scanner input = new Scanner(System.in);
-
-        System.out.print("Enter text one: ");
-        String textOne = input.nextLine();
-        storedWordsOne = new ArrayList<>(Arrays.asList(textOne.split("([,.!?_;=+-:\\s]+)")));
-        storedSentencesOne = new ArrayList<>(Arrays.asList(textOne.split("[!?.:]+")));
-
-        double featureOneTextOne = getsAverageLengthOfWords(storedWordsOne);
-        double featureTwoTextOne = getsTypeTokenRatio(storedWordsOne);
-        double featureThreeTextOne = getsHapaxLegomenaRatio(storedWordsOne);
-        double featureFourTextOne = getsAverageWordsInSentence(storedWordsOne, storedSentencesOne);
-
-        System.out.println("1. Avg. word length: " + featureOneTextOne +
-                "\n2. Type-Token Ratio: " + featureTwoTextOne +
-                "\n3. Hapax Legomena Ratio: " + featureThreeTextOne +
-                "\n4. Avg. sentence length: " + featureFourTextOne);
-
-        System.out.print("Enter text two: ");
-        String textTwo = input.nextLine();
-        storedWordsTwo = new ArrayList<>(Arrays.asList(textTwo.split("([,.!?_;=+-:\\s]+)")));
-        storedSentencesTwo = new ArrayList<>(Arrays.asList(textTwo.split("[!?.:]+")));
-
-        double featureOneTextTwo = getsAverageLengthOfWords(storedWordsTwo);
-        double featureTwoTextTwo = getsTypeTokenRatio(storedWordsTwo);
-        double featureThreeTextTwo = getsHapaxLegomenaRatio(storedWordsTwo);
-        double featureFourTextTwo = getsAverageWordsInSentence(storedWordsTwo, storedSentencesTwo);
-
-        System.out.println("1. Avg. word length: " + featureOneTextTwo +
-                "\n2. Type-Token Ratio: " + featureTwoTextTwo +
-                "\n3. Hapax Legomena Ratio: " + featureThreeTextTwo +
-                "\n4. Avg. sentence length: " + featureFourTextTwo);
-
-        double result = Math.abs(featureOneTextOne - featureOneTextTwo) * 11 +
-                Math.abs(featureTwoTextOne - featureTwoTextTwo) * 33 +
-                Math.abs(featureThreeTextOne - featureThreeTextTwo) * 50 +
-                Math.abs(featureFourTextOne - featureFourTextTwo) * 0.4;
+    public void printsSimilarity() {
+        double result = Math.abs(getAverageLengthOfWords(storedWordsOne) - getAverageLengthOfWords(storedWordsTwo)) * weightOne +
+                Math.abs(getTypeTokenRatio(storedWordsOne) - getTypeTokenRatio(storedWordsTwo)) * weightTwo +
+                Math.abs(getHapaxLegomenaRatio(storedWordsOne) - getHapaxLegomenaRatio(storedWordsTwo)) * weightThree +
+                Math.abs(getAverageWordsInSentence(storedWordsOne, storedSentencesOne) - getAverageWordsInSentence(storedWordsTwo, storedSentencesTwo)) * weightFour;
 
         System.out.println("Similarity: " + result);
+    }
 
+    public void setsWeight() {
+        System.out.print("Type 1 if you want to continue with default values(Default values: 11, 33, 50, 0.4), type 2 to set your own values: ");
 
+        int option = input.nextInt();
+
+        switch (option) {
+            case 1:
+                break;
+            case 2:
+                weightOne = input.nextDouble();
+                weightTwo = input.nextDouble();
+                weightThree = input.nextDouble();
+                weightFour = input.nextDouble();
+                break;
+        }
+    }
+
+    public void storesTextOne() {
+        System.out.print("Enter text one: ");
+        textOne = input.nextLine();
+        storedWordsOne = new ArrayList<>(Arrays.asList(textOne.split("([,.!?_;=+-:\\s]+)")));
+        storedSentencesOne = new ArrayList<>(Arrays.asList(textOne.split("[!?.:]+")));
+    }
+
+    public void storesTextTwo() {
+        System.out.print("Enter text two: ");
+        textTwo = input.nextLine();
+        storedWordsTwo = new ArrayList<>(Arrays.asList(textTwo.split("([,.!?_;=+-:\\s]+)")));
+        storedSentencesTwo = new ArrayList<>(Arrays.asList(textTwo.split("[!?.:]+")));
+    }
+
+    public void comparesTexts() {
+        storesTextOne();
+        printsResult(storedWordsOne, storedSentencesOne);
+        storesTextTwo();
+        printsResult(storedWordsTwo, storedSentencesTwo);
+        setsWeight();
+        printsSimilarity();
     }
 
 }
