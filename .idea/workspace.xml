@@ -1,30 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3f00a019-4674-4266-aa86-e650eb81623c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/feature/CalculationResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/feature/FeatureCalculatable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/feature/implementation/AverageLengthOfWords.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/feature/implementation/AverageWordsInSentence.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/feature/implementation/HapaxLegomenaRatio.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/feature/implementation/TestFeature.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/feature/implementation/TypeTokenRatio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PlagiarismDetectorProject/AverageLengthOfWords.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PlagiarismDetectorProject/AverageWordsInSentence.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PlagiarismDetectorProject/Detector.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PlagiarismDetectorProject/HapaxLegomenaRatio.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PlagiarismDetectorProject/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PlagiarismDetectorProject/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PlagiarismDetectorProject/TypeTokenRatio.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AverageLengthOfWords.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AverageWordsInSentence.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Detector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Detector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HapaxLegomenaRatio.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TypeTokenRatio.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unitTest/TypeTokenRatioTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unitTest/TypeTokenRatioTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="3f00a019-4674-4266-aa86-e650eb81623c" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,10 +63,19 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.CalculationResultTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="PlagiarismDetectorProject" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CalculationResultTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PlagiarismDetectorProject" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CalculationResultTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -107,9 +93,11 @@
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.TypeTokenRatioTest.countWordsTest" />
+      <item itemvalue="JUnit.CalculationResultTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CalculationResultTest" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.TypeTokenRatioTest.countWordsTest" />
       </list>
