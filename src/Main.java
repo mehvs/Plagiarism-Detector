@@ -1,17 +1,27 @@
+import feature.FeatureCalculatable;
+import feature.implementation.*;
+
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
         boolean detectorIsOn = true;
-        Scanner input = new Scanner(System.in);
-        Detector detector = new Detector();
+        List<FeatureCalculatable> features = Arrays.asList(new TypeTokenRatio(), new HapaxLegomenaRatio(), new AverageLengthOfWords(), new AverageWordsInSentence());
+//        List<FeatureCalculatable> features = Arrays.asList(new TypeTokenRatio(), new HapaxLegomenaRatio(), new AverageLengthOfWords(), new AverageWordsInSentence(), new TestFeature());
+        Detector detector = new Detector(features);
+        UserInputOutput inputOutput = new UserInputOutput(new Scanner(System.in));
 
         while (detectorIsOn) {
-            detector.comparesTexts();
+            String textOne = inputOutput.readNextLine();
+            String textTwo = inputOutput.readNextLine();
 
-            System.out.print("Type 1 if you want to compare new texts or type 2 to exit the detector: ");
-            int option = input.nextInt();
+            detector.detectTexts(textOne, textTwo);
+
+            inputOutput.printEndOptions();
+            int option = inputOutput.readNextInt();
 
             switch (option) {
                 case 1:
